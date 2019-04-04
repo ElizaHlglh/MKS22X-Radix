@@ -284,12 +284,20 @@ public class MyLinkedList{
         //The size of other is reduced to 0
         //The size of this is now the combined sizes of both original lists
         if (other.size() != 0){
-          Node startOther = other.getNode(0);
-          end.setNext(startOther);
-          startOther.setPrev(end);
-          end = other.getNode(other.size()-1);
-          length += other.size();
-          other.clear();
+          if (length == 0){ //if the current link is empty
+            start = other.getNode(0);
+            end = other.getNode(other.size()-1);
+            length += other.size();
+            other.clear();
+          }
+          else{
+            Node startOther = other.getNode(0);
+            end.setNext(startOther);
+            startOther.setPrev(end);
+            end = other.getNode(other.size()-1);
+            length += other.size();
+            other.clear();
+          }
         }
 
     }
