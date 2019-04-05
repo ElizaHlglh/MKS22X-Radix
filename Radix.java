@@ -25,15 +25,20 @@ public class Radix{
           budget[digit+10].add(data[i]);
         }
       }
-      System.out.println(debugBudget(budget));
-      System.out.println();
+      //System.out.println(debugBudget(budget));
+      //System.out.println();
       MyLinkedList result = new MyLinkedList(); //merge all list in the budget into a whole list
       for (int k = 0; k < budget.length; k++){
         result.extend(budget[k]);
       }
+      //System.out.println("result : " + result);
       //edit data to equal to the list
+
       for (int l = 0; l < data.length; l++){
-        data[l] = result.get(l);
+        //System.out.println(result);
+        //System.out.println();
+        //data[l] = result.get(l);
+        data[l] = result.remove(0);
       }
     }
   }
